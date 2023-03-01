@@ -1,0 +1,125 @@
+# -*- fill-column: 72; -*-
+#+title: Emacs initialisation
+#+startup: indent
+
+* Package management
+
+#+begin_src emacs-lisp
+  (require 'package)
+
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (package-initialize)
+#+end_src
+
+The library [[https://github.com/jwiegley/use-package][=use-package=]] provides a convenient way to configure other
+packages. See, e.g.,
+https://ianyepan.github.io/posts/setting-up-use-package/. The option
+~use-package-always-ensure~ means that packages that are required but
+not installed will be downloaded and installed automatically.
+
+#+begin_src emacs-lisp
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
+  (require 'use-package-ensure)
+  (setq use-package-always-ensure t)
+#+end_src 
+
+
+* Environment
+
+#+begin_src emacs-lisp
+  (use-package exec-path-from-shell
+    :config 
+    (exec-path-from-shell-initialize))
+#+end_src
+
+
+* Whoami
+
+#+begin_src emacs-lisp
+  (setq user-mail-address "jgeddes@turing.ac.uk")
+#+end_src
+
+
+* Look and feel
+
+** MacOS modifier keys
+
+#+begin_src emacs-lisp
+  (setq ns-alternate-modifier 'none)
+  (setq ns-command-modifier 'meta)
+#+end_src
+
+** Movement and editing
+
+#+begin_src emacs-lisp
+  ;; Typing deletes selection
+  (delete-selection-mode 1)
+  ;; M-` moves between frames
+  (global-set-key (kbd "M-`") 'next-multiframe-window) 
+#+end_src
+
+** Typography
+
+#+begin_src emacs-lisp
+  (setq-default left-margin-width 1 right-margin-width 1)
+
+  (setq default-frame-alist
+        '((left-fringe . 16)
+          (right-fringe . 16)
+          (width . 102)
+          (height . 50)))
+
+  (tool-bar-mode -1)
+
+  (setq fill-column 102)
+  (setq frame-background-mode 'dark)
+  (setq fringe-mode '(nil . 0))
+
+  (setq line-spacing 0.3)
+#+end_src
+
+** Custom themes
+
+#+begin_src emacs-lisp
+  (use-package color-theme-sanityinc-solarized)
+  (load-theme 'sanityinc-solarized-light t)
+#+end_src
+
+
+
+
+* Org mode
+
+#+begin_src emacs-lisp
+  ;; Enable orgtbl-mode minor mode
+  (require 'org-table)
+
+  ;; Turn on syntax highlighting in src blocks
+  (setq org-src-fontify-natively t)  
+#+end_src
+
+** LaTeX export configuration
+
+
+* Programming language support
+
+** Assembly
+
+ARM assembly uses the “@” character as a comment.
+#+begin_src emacs-lisp
+  (setq asm-comment-char 64)
+#+end_src
+
+
+* Text mode support
+
+#+begin_src emacs-lisp
+  (add-hook 'text-mode-hook 'auto-fill-mode)
+  
+  (setq ispell-dictionary "british")
+  (setq ispell-program-name "aspell")
+#+end_src
+
+
