@@ -105,6 +105,12 @@ not installed will be downloaded and installed automatically.
 
 * Programming language support
 
+** Git
+
+#+begin_src emacs-lisp
+  (use-package magit)
+#+end_src
+
 ** Assembly
 
 ARM assembly uses the “@” character as a comment.

@@ -28,7 +28,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default))
- '(package-selected-packages '(color-theme-sanityinc-solarized use-package))
+ '(package-selected-packages '(magit color-theme-sanityinc-solarized use-package))
  '(warning-suppress-types '((comp))))
 
 (custom-set-faces
