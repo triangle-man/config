@@ -1,6 +1,7 @@
 # -*- fill-column: 72; -*-
 #+title: Emacs initialisation
 #+startup: indent
+#+startup: overview
 
 * Package management
 
@@ -118,14 +119,37 @@ ARM assembly uses the “@” character as a comment.
   (setq asm-comment-char 64)
 #+end_src
 
+** Polymode
 
-* Text mode support
+#+begin_src emacs-lisp
+  (use-package polymode)
+  (use-package poly-markdown)
+#+end_src
+
+** R
+
+#+begin_src emacs-lisp
+  (use-package ess)
+#+end_src
+
+#+begin_src emacs-lisp
+  (use-package quarto-mode)
+  (use-package request)
+#+end_src
+
+
+
+* Text modes
 
 #+begin_src emacs-lisp
   (add-hook 'text-mode-hook 'auto-fill-mode)
   
   (setq ispell-dictionary "british")
   (setq ispell-program-name "aspell")
+#+end_src
+
+#+begin_src emacs-lisp
+  (use-package markdown-mode)
 #+end_src
 
 
