@@ -137,7 +137,11 @@ ARM assembly uses the “@” character as a comment.
   (use-package request)
 #+end_src
 
+** Lisp
 
+#+begin_src emacs-lisp
+  (use-package paredit)
+#+end_src
 
 * Text modes
 
