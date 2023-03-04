@@ -7,7 +7,7 @@
  '(custom-safe-themes
    '("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default))
  '(package-selected-packages
-   '(paredit ess quarto-mode request poly-markdown polymode magit color-theme-sanityinc-solarized use-package))
+   '(company paredit ess quarto-mode request poly-markdown polymode magit color-theme-sanityinc-solarized use-package))
  '(warning-suppress-types '((comp))))
 
 (custom-set-faces

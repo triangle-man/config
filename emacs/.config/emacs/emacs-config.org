@@ -91,6 +91,14 @@ not installed will be downloaded and installed automatically.
 
 
 
+* Utilities
+
+#+begin_src emacs-lisp
+    (use-package company
+      :hook prog-mode)
+#+end_src
+
+
 * Org mode
 
 #+begin_src emacs-lisp
