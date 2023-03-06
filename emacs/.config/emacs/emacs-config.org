@@ -1,6 +1,5 @@
 # -*- fill-column: 72; -*-
 #+title: Emacs initialisation
-#+startup: indent
 #+startup: overview
 
 * Package management
@@ -78,7 +77,9 @@ not installed will be downloaded and installed automatically.
   (setq frame-background-mode 'dark)
   (setq fringe-mode '(nil . 0))
 
-  (setq line-spacing 0.3)
+  (setq-default line-spacing 0.2)
+
+  (setq truncate-string-ellipsis "…")
 #+end_src
 
 ** Custom themes
@@ -91,14 +92,6 @@ not installed will be downloaded and installed automatically.
 
 
 
-* Utilities
-
-#+begin_src emacs-lisp
-    (use-package company
-      :hook prog-mode)
-#+end_src
-
-
 * Org mode
 
 #+begin_src emacs-lisp
@@ -109,8 +102,31 @@ not installed will be downloaded and installed automatically.
   (setq org-src-fontify-natively t)  
 #+end_src
 
+Org-babel support for various languages. See
+https://orgmode.org/worg/org-contrib/babel/languages/index.html for
+customisation for each supported language.
+#+begin_src emacs-lisp
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t)))
+
+  ;; See code evaluation and security issues in the org manual
+  (setq org-confirm-babel-evaluate nil)
+#+end_src
+
+
 ** LaTeX export configuration
 
+
+Use the minted package for syntax highlighting in LaTeX. There seem to
+be some indicates that engraved will eventually supercede this.
+#+begin_src emacs-lisp
+  (require 'ox-latex)
+  (setq org-latex-listings 'minted)
+  (add-to-list 'org-latex-packages-alist '("newfloat" "minted"))
+  (setq org-latex-pdf-process
+	'("latexmk -f -shell-escape -pdf -%latex -interaction=nonstopmode -output-directory=%o %f"))
+#+end_src
 
 * Programming language support
 
@@ -132,6 +148,7 @@ ARM assembly uses the “@” character as a comment.
 #+begin_src emacs-lisp
   (use-package polymode)
   (use-package poly-markdown)
+  (use-package poly-org)
 #+end_src
 
 ** R
@@ -148,7 +165,20 @@ ARM assembly uses the “@” character as a comment.
 ** Lisp
 
 #+begin_src emacs-lisp
-  (use-package paredit)
+  (use-package paredit
+    :hook (emacs-lisp-mode lisp-mode scheme-mode))
+#+end_src
+
+Company provides structured editing support for lisps. 
+#+begin_src emacs-lisp
+  (use-package company
+    :hook prog-mode)
+#+end_src
+
+** Python
+
+#+begin_src emacs-lisp
+  (setq org-babel-python-command "python3")
 #+end_src
 
 
