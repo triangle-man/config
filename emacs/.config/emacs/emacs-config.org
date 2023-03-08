@@ -114,6 +114,11 @@ customisation for each supported language.
   (setq org-confirm-babel-evaluate nil)
 #+end_src
 
+Minor mode for presentations.
+#+begin_src emacs-lisp
+  (use-package org-present)
+#+end_src
+
 
 ** LaTeX export configuration
 
@@ -127,6 +132,7 @@ be some indicates that engraved will eventually supercede this.
   (setq org-latex-pdf-process
 	'("latexmk -f -shell-escape -pdf -%latex -interaction=nonstopmode -output-directory=%o %f"))
 #+end_src
+
 
 * Programming language support
 
