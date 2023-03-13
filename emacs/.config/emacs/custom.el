@@ -18,5 +18,9 @@
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "Fira Code"))))
  '(font-lock-constant-face ((t (:foreground "medium sea green"))))
  '(fringe ((t (:background nil))))
- '(org-level-1 ((t (:inherit outline-1 :extend nil :weight bold))))
- '(tuareg-font-lock-governing-face ((t (:weight bold)))))
+ '(mode-line
+   ((t (:box (:line-width (2 . 2) :color "OliveDrab2" :style flat-button)))))
+'(mode-line-inactive
+   ((t (:box (:line-width (2 . 2) :color "OliveDrab2" :style flat-button)))))
+'(org-level-1 ((t (:inherit outline-1 :extend nil :weight bold))))
+'(tuareg-font-lock-governing-face ((t (:weight bold)))))
