@@ -26,6 +26,15 @@ not installed will be downloaded and installed automatically.
 #+end_src 
 
 
+* Authentication
+
+At present, the secrets file is used only for magit forge. Its location
+has been set according to the [[https://magit.vc/manual/ghub/Storing-a-Token.html][ghub documentation]].
+#+begin_src emacs-lisp
+  (setq auth-sources '("~/.authinfo"))
+#+end_src
+
+
 * Environment
 
 #+begin_src emacs-lisp
@@ -140,6 +149,7 @@ be some indicates that engraved will eventually supercede this.
 
 #+begin_src emacs-lisp
   (use-package magit)
+  (use-package forge)
 #+end_src
 
 ** Assembly

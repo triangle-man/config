@@ -8,7 +8,7 @@
    '("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default))
  '(org-agenda-files '("~/Documents/GtD/"))
  '(package-selected-packages
-   '(presentation-mode org-present org poly-org company paredit ess quarto-mode request poly-markdown polymode magit color-theme-sanityinc-solarized use-package))
+   '(forge presentation-mode org-present org poly-org company paredit ess quarto-mode request poly-markdown polymode magit color-theme-sanityinc-solarized use-package))
  '(warning-suppress-types '((comp))))
 
 (custom-set-faces
@@ -19,9 +19,7 @@
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "Fira Code"))))
  '(font-lock-constant-face ((t (:foreground "medium sea green"))))
  '(fringe ((t (:background nil))))
- '(mode-line
-   ((t (:box (:line-width (2 . 2) :color "OliveDrab2" :style flat-button)))))
-'(mode-line-inactive
-   ((t (:box (:line-width (2 . 2) :color "OliveDrab2" :style flat-button)))))
-'(org-level-1 ((t (:inherit outline-1 :extend nil :weight bold))))
-'(tuareg-font-lock-governing-face ((t (:weight bold)))))
+ '(mode-line ((t (:box (:line-width (2 . 2) :color "OliveDrab2" :style flat-button)))))
+ '(mode-line-inactive ((t (:box (:line-width (2 . 2) :color "OliveDrab2" :style flat-button)))))
+ '(org-level-1 ((t (:inherit outline-1 :extend nil :weight bold))))
+ '(tuareg-font-lock-governing-face ((t (:weight bold)))))

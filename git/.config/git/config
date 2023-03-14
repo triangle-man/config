@@ -1,0 +1,7 @@
+[user]
+	email = jgeddes@turing.ac.uk
+	name = "James Geddes"
+[init]
+	defaultBranch = main
+[github]
+	user = triangle-man
