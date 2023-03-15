@@ -103,12 +103,19 @@ has been set according to the [[https://magit.vc/manual/ghub/Storing-a-Token.htm
 
 * Org mode
 
+General setup.
 #+begin_src emacs-lisp
   ;; Enable orgtbl-mode minor mode
   (require 'org-table)
 
   ;; Turn on syntax highlighting in src blocks
-  (setq org-src-fontify-natively t)  
+  (setq org-src-fontify-natively t)
+
+  ;; Make org functions available outside org-mode as recommended by the
+  ;; Org manual section 1.3
+  (global-set-key (kbd "C-c l") #'org-store-link)
+  (global-set-key (kbd "C-c a") #'org-agenda)
+  (global-set-key (kbd "C-c c") #'org-capture)
 #+end_src
 
 Org-babel support for various languages. See
@@ -123,10 +130,8 @@ customisation for each supported language.
   (setq org-confirm-babel-evaluate nil)
 #+end_src
 
-Minor mode for presentations.
-#+begin_src emacs-lisp
-  (use-package org-present)
-#+end_src
+I did add a minor mode for presentations here but in fact patat works
+very well.
 
 
 ** LaTeX export configuration
