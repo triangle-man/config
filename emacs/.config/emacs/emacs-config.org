@@ -37,10 +37,12 @@ has been set according to the [[https://magit.vc/manual/ghub/Storing-a-Token.htm
 
 * Environment
 
+Apparently ~exec-path-from-shell~ is no longer required. (Or so Emacs
+tells me.)
 #+begin_src emacs-lisp
-  (use-package exec-path-from-shell
-    :config 
-    (exec-path-from-shell-initialize))
+  ;; (use-package exec-path-from-shell
+  ;;   :config 
+  ;;   (exec-path-from-shell-initialize))
 #+end_src
 
 
