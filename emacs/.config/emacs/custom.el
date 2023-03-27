@@ -5,10 +5,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default))
+   '("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default))
  '(org-agenda-files '("~/Documents/GtD/"))
  '(package-selected-packages
-   '(forge presentation-mode org-present org poly-org company paredit ess quarto-mode request poly-markdown polymode magit color-theme-sanityinc-solarized use-package))
+   '(htmlize forge presentation-mode org-present org poly-org company paredit ess quarto-mode request poly-markdown polymode magit color-theme-sanityinc-solarized use-package))
  '(warning-suppress-types '((comp))))
 
 (custom-set-faces

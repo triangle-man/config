@@ -15,10 +15,6 @@
 (org-babel-load-file
  (expand-file-name "emacs-config.org" user-emacs-directory))
 
-;; (message "About to load init2.el")
-;; (load
-;;  (expand-file-name "init2.el" "~/.config/emacs"))
-
 (provide 'init)
 
 ;;; init.el ends here

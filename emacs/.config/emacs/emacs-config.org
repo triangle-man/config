@@ -105,7 +105,7 @@ tells me.)
 
 * Org mode
 
-General setup.
+** General setup
 #+begin_src emacs-lisp
   ;; Enable orgtbl-mode minor mode
   (require 'org-table)
@@ -120,8 +120,9 @@ General setup.
   (global-set-key (kbd "C-c c") #'org-capture)
 #+end_src
 
-Org-babel support for various languages. See
-https://orgmode.org/worg/org-contrib/babel/languages/index.html for
+** Language support provided by org-babel
+
+See https://orgmode.org/worg/org-contrib/babel/languages/index.html for
 customisation for each supported language.
 #+begin_src emacs-lisp
   (org-babel-do-load-languages
@@ -135,9 +136,7 @@ customisation for each supported language.
 I did add a minor mode for presentations here but in fact patat works
 very well.
 
-
 ** LaTeX export configuration
-
 
 Use the minted package for syntax highlighting in LaTeX. There seem to
 be some indicates that engraved will eventually supercede this.
@@ -148,6 +147,42 @@ be some indicates that engraved will eventually supercede this.
   (setq org-latex-pdf-process
 	'("latexmk -f -shell-escape -pdf -%latex -interaction=nonstopmode -output-directory=%o %f"))
 #+end_src
+
+** Publishing my blog
+
+#+begin_src emacs-lisp
+  (use-package htmlize)
+#+end_src
+
+
+#+begin_src emacs-lisp
+  (setq org-publish-project-alist
+	'(("blog"
+	   :base-directory "~/Projects/triangle-man.github.io/src"
+	   :publishing-function org-html-publish-to-html-tufte
+	   :publishing-directory "~/Projects/triangle-man.github.io/docs"
+	   :auto-sitemap t
+	   :table-of-contents nil
+           :section-numbers nil
+	   :html-head-include-default-style nil
+	   :html-head "<link rel=\"stylesheet\" href=\"tufte.css\" type=\"text/css\"/>"
+	   :html-footnote-format "<label for=\"%1$s\" class=\"margin-toggle sidenote-number\">
+</label><input type=\"checkbox\" id=\"%1$s\" class=\"margin-toggle\"/>"
+	   :html-footnote-separator ", "
+	   :htmlized-source t ; what is this for?
+	   )))
+#+end_src
+
+*** Notes on GitHub Pages
+
+See [[https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages][the GitHub Pages documentation]].
+
+To publish without using Jekyll, include an empty file called
+=.nojekyll= in the source directory. The source directory is either the
+root of repository or =/docs=: choose which in Settings on GitHub.
+
+
+
 
 
 * Programming language support
