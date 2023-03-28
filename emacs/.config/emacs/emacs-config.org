@@ -152,7 +152,8 @@ be some indicates that engraved will eventually supercede this.
 
 Load the definitions of the html-tufte backend.
 #+begin_src emacs-lisp
-  (load-file "ox-html-tufte.el")
+(let ((f (expand-file-name "ox-html-tufte.el" user-emacs-directory)))
+  (load f))
 #+end_src
 
 #+begin_src emacs-lisp
