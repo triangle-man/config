@@ -150,10 +150,14 @@ be some indicates that engraved will eventually supercede this.
 
 ** Publishing my blog
 
+Load the definitions of the html-tufte backend.
+#+begin_src emacs-lisp
+  (load-file "ox-html-tufte.el")
+#+end_src
+
 #+begin_src emacs-lisp
   (use-package htmlize)
 #+end_src
-
 
 #+begin_src emacs-lisp
   (setq org-publish-project-alist
@@ -169,6 +173,7 @@ be some indicates that engraved will eventually supercede this.
 	   :html-footnote-format "<label for=\"%1$s\" class=\"margin-toggle sidenote-number\">
 </label><input type=\"checkbox\" id=\"%1$s\" class=\"margin-toggle\"/>"
 	   :html-footnote-separator ", "
+	   :html-footnotes-section "" ; Do not insert a footnote section
 	   :htmlized-source t ; what is this for?
 	   )))
 #+end_src

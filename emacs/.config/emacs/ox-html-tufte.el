@@ -52,7 +52,9 @@ Return output file name."
 (defun org-html-tufte-footnote-reference (footnote-reference _contents info)
   "Transcode a FOOTNOTE-REFERENCE element from Org to HTML and
 include, nearby, the definition. CONTENTS is nil. INFO is a plist
-holding contextual information."
+holding contextual information.
+
+Does not correctly deal with block footnotes."
   (concat
    ;; Insert separator between two footnotes in a row.
    (let ((prev (org-export-get-previous-element footnote-reference info)))
@@ -72,9 +74,9 @@ holding contextual information."
       (format "<span class=\"sidenote\">%s</span>" (org-export-data fn info))
       ))))
 
+;; Define new backend derived from html
 (org-export-define-derived-backend 'html-tufte 'html
-  :translate-alist '((footnote-reference . org-html-tufte-footnote-reference)))
-
-
+  :translate-alist
+  '((footnote-reference . org-html-tufte-footnote-reference)))
 
 (provide 'ox-html-tufte)
