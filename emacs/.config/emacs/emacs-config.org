@@ -138,8 +138,8 @@ very well.
 
 ** LaTeX export configuration
 
-Use the minted package for syntax highlighting in LaTeX. There seem to
-be some indicates that engraved will eventually supercede this.
+Use the =minted= package for syntax highlighting in LaTeX. There seem to
+be some indication that =engraved= will eventually supercede this.
 #+begin_src emacs-lisp
   (require 'ox-latex)
   (setq org-latex-listings 'minted)
@@ -166,17 +166,26 @@ Load the definitions of the html-tufte backend.
 	   :base-directory "~/Projects/triangle-man.github.io/src"
 	   :publishing-function org-html-publish-to-html-tufte
 	   :publishing-directory "~/Projects/triangle-man.github.io/docs"
-	   :auto-sitemap t
+	   :auto-sitemap t ; Manually copy the table of contents into index.org
+	   :sitemap-filename "sitemap.org"
+	   :exclude "sitemap.org"
+	   :html-link-home "index.html"
+	   :sitemap-title "The Armchair Programmer"
+	   :sitemap-date-format "%d %b %Y"
+	   :date-format "%d %B %Y"
 	   :table-of-contents nil
            :section-numbers nil
+	   ; html customisation
+	   ; :html-container -- TODO: fix to match original tufte.css
+	   :html-metadata-timestamp-format "%d %B %Y"
 	   :html-head-include-default-style nil
 	   :html-head "<link rel=\"stylesheet\" href=\"tufte.css\" type=\"text/css\"/>"
 	   :html-footnote-format "<label for=\"%1$s\" class=\"margin-toggle sidenote-number\">
 </label><input type=\"checkbox\" id=\"%1$s\" class=\"margin-toggle\"/>"
 	   :html-footnote-separator ", "
 	   :html-footnotes-section "" ; Do not insert a footnote section
-	   :htmlized-source t ; what is this for?
-	   )))
+	   :htmlized-source t ; What is this for?
+	   )))  
 #+end_src
 
 *** Notes on GitHub Pages
