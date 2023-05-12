@@ -250,7 +250,8 @@ Paredit provides structured editing support for lisps.
   :config
   (dolist (m '(emacs-lisp-mode-hook
 	       racket-mode-hook
-	       racket-repl-mode-hook))
+	       ; racket-repl-mode-hook ; refuses to enter expressions -- JG
+	       ))
     (add-hook m #'paredit-mode))
   (bind-keys :map paredit-mode-map
 	     ("{"   . paredit-open-curly)
