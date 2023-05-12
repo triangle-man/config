@@ -202,6 +202,12 @@ root of repository or =/docs=: choose which in Settings on GitHub.
 
 * Programming language support
 
+** Company
+
+#+begin_src emacs-lisp
+  (use-package company)
+#+end_src
+
 ** Git
 
 #+begin_src emacs-lisp
@@ -237,15 +243,26 @@ ARM assembly uses the “@” character as a comment.
 
 ** Lisp
 
+Paredit provides structured editing support for lisps. 
 #+begin_src emacs-lisp
-  (use-package paredit
-    :hook (emacs-lisp-mode lisp-mode scheme-mode))
+(use-package paredit
+  :ensure t
+  :config
+  (dolist (m '(emacs-lisp-mode-hook
+	       racket-mode-hook
+	       racket-repl-mode-hook))
+    (add-hook m #'paredit-mode))
+  (bind-keys :map paredit-mode-map
+	     ("{"   . paredit-open-curly)
+	     ("}"   . paredit-close-curly))
+  (unless terminal-frame
+    (bind-keys :map paredit-mode-map
+	       ("M-[" . paredit-wrap-square)
+	       ("M-{" . paredit-wrap-curly))))
 #+end_src
 
-Company provides structured editing support for lisps. 
 #+begin_src emacs-lisp
-  (use-package company
-    :hook prog-mode)
+  (use-package racket-mode)
 #+end_src
 
 ** Python
