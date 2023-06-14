@@ -272,6 +272,45 @@ Paredit provides structured editing support for lisps.
   (setq org-babel-python-command "python3")
 #+end_src
 
+** OCaml
+#+begin_src emacs-lisp
+  (use-package tuareg
+    :ensure t)
+
+  ;; Instructed to add this by `opam install tuareg`:
+  (load "/Users/jgeddes/.opam/default/share/emacs/site-lisp/tuareg-site-file")
+#+end_src
+
+#+begin_src emacs-lisp
+  (use-package merlin
+    :ensure t
+    :config
+     (add-hook 'tuareg-mode-hook 'merlin-mode t)
+     (add-hook 'merlin-mode-hook #'company-mode t))
+  
+  ;; Instructed to add this by `opam install merlin`:
+(let ((opam-share (ignore-errors (car (process-lines "opam" "var" "share")))))
+  (when (and opam-share (file-directory-p opam-share))
+    ;; Register Merlin
+    (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+    (autoload 'merlin-mode "merlin" nil t nil)
+    ;; Automatically start it in OCaml buffers
+    ;; (add-hook 'tuareg-mode-hook 'merlin-mode t)
+    (add-hook 'caml-mode-hook 'merlin-mode t)
+    ;; Use opam switch to lookup ocamlmerlin binary
+    (setq merlin-command 'opam)))
+#+end_src
+
+Utop is an alternative REPL.
+#+begin_src emacs-lisp
+  (use-package utop
+        :ensure t
+        :config
+        (autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
+        (add-hook 'tuareg-mode-hook 'utop-minor-mode)
+	(setq utop-command "opam config exec -- utop -emacs"))
+#+end_src
+
 
 * Text modes
 
