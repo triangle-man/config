@@ -311,6 +311,12 @@ Utop is an alternative REPL.
 	(setq utop-command "opam config exec -- utop -emacs"))
 #+end_src
 
+** Nix
+#+begin_src emacs-lisp
+  (use-package nix-mode
+    :ensure t)
+#+end_src
+
 
 * Text modes
 
