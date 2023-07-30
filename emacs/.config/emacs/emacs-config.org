@@ -278,7 +278,9 @@ Paredit provides structured editing support for lisps.
     :ensure t)
 
   ;; Instructed to add this by `opam install tuareg`:
-  (load "/Users/jgeddes/.opam/default/share/emacs/site-lisp/tuareg-site-file")
+  (let ((local-tuareg-site-file "/Users/jgeddes/.opam/default/share/emacs/site-lisp/tuareg-site-file"))
+    (when (file-exists-p local-tuareg-site-file)
+      (load local-tuareg-site-file)))
 #+end_src
 
 #+begin_src emacs-lisp
@@ -313,8 +315,7 @@ Utop is an alternative REPL.
 
 ** Nix
 #+begin_src emacs-lisp
-  (use-package nix-mode
-    :ensure t)
+  (use-package nix-mode)
 #+end_src
 
 
