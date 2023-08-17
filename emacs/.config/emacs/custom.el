@@ -8,7 +8,7 @@
    '("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default))
  '(org-agenda-files '("~/Documents/GtD/"))
  '(package-selected-packages
-   '(racket-mode company htmlize forge presentation-mode org-present org poly-org paredit ess quarto-mode request poly-markdown polymode magit color-theme-sanityinc-solarized use-package))
+   '(adaptive-wrap visual-fill-column utop merlin nix-mode tuareg haskell-mode hasklig-mode racket-mode company htmlize forge presentation-mode org-present org poly-org paredit ess quarto-mode request poly-markdown polymode magit color-theme-sanityinc-solarized use-package))
  '(warning-suppress-types '((comp))))
 
 (custom-set-faces
