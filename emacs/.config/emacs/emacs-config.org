@@ -73,6 +73,14 @@ tells me.)
 
 ** Typography
 
+Visual fill column mode wraps lines at ~fill-column~ in
+~visual-line-mode~. The package ~adaptive-wrap~ indents subsequent lines
+of paragraphs according to the first line.
+#+begin_src emacs-lisp
+  (use-package visual-fill-column)
+  (use-package adaptive-wrap)
+#+end_src
+
 #+begin_src emacs-lisp
   (setq-default left-margin-width 1 right-margin-width 1)
 
