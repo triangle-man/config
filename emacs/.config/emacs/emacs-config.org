@@ -331,8 +331,9 @@ Utop is an alternative REPL.
 
 #+begin_src emacs-lisp
   (add-hook 'text-mode-hook 'auto-fill-mode)
+  (add-hook 'latex-mode-hook 'prettify-symbols-mode)
   
-  (setq ispell-dictionary "british")
+(setq ispell-dictionary "british")
   (setq ispell-program-name "aspell")
 #+end_src
 
