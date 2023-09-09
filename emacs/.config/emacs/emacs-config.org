@@ -210,6 +210,14 @@ root of repository or =/docs=: choose which in Settings on GitHub.
 
 * Programming language support
 
+** Flycheck
+
+#+begin_src emacs-lisp
+  (use-package flycheck
+    :ensure t
+    :init (global-flycheck-mode))
+#+end_src
+
 ** Company
 
 #+begin_src emacs-lisp
