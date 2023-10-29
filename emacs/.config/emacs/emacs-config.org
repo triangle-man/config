@@ -227,7 +227,8 @@ root of repository or =/docs=: choose which in Settings on GitHub.
 ** Git
 
 #+begin_src emacs-lisp
-  (use-package magit)
+  (use-package magit
+    :init (setq magit-define-global-key-bindings 'recommended))
   (use-package forge)
 #+end_src
 
@@ -347,6 +348,7 @@ Utop is an alternative REPL.
     :mode ("\\.mac\\'" . maxima-mode)
     :interpreter ("maxima" . maxima-mode))
 #+end_src
+
 
 * Text modes
 
