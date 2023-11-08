@@ -23,7 +23,7 @@ not installed will be downloaded and installed automatically.
     (package-install 'use-package))
   (require 'use-package-ensure)
   (setq use-package-always-ensure t)
-#+end_src 
+#+end_src
 
 
 * Authentication
