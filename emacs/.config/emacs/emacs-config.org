@@ -247,15 +247,17 @@ ARM assembly uses the “@” character as a comment.
   (use-package poly-org)
 #+end_src
 
-** R
-
-#+begin_src emacs-lisp
-  (use-package ess)
-#+end_src
+** Quarto
 
 #+begin_src emacs-lisp
   (use-package quarto-mode)
   (use-package request)
+#+end_src
+
+** R
+
+#+begin_src emacs-lisp
+  (use-package ess)
 #+end_src
 
 ** Lisp
