@@ -283,7 +283,8 @@ Paredit provides structured editing support for lisps.
 #+end_src
 
 #+begin_src emacs-lisp
-  (use-package racket-mode)
+  (use-package racket-mode
+    :hook (racket-mode . racket-xp-mode))
 #+end_src
 
 ** Python
