@@ -221,7 +221,8 @@ root of repository or =/docs=: choose which in Settings on GitHub.
 ** Company
 
 #+begin_src emacs-lisp
-  (use-package company)
+  (use-package company
+    :config (global-company-mode))
 #+end_src
 
 ** Git
@@ -282,7 +283,8 @@ Paredit provides structured editing support for lisps.
 #+end_src
 
 #+begin_src emacs-lisp
-  (use-package racket-mode)
+  (use-package racket-mode
+    :hook (racket-mode . racket-xp-mode))
 #+end_src
 
 ** Python
