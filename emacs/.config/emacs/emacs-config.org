@@ -122,7 +122,7 @@ of paragraphs according to the first line.
   (setopt org-src-fontify-natively t)
 
   ;; Defaults for Getting Things Done
-  (setopt org-agenda-files '("~/Documents/GtD/work/")) ; A directory
+  (setopt org-agenda-files '("~/Documents/GtD/work/" "~/Documents/GtD/inbox.org")) 
   (setopt org-default-notes-file "~/Documents/GtD/inbox.org")
 
   ;; Make org functions available outside org-mode as recommended by the
