@@ -111,7 +111,7 @@ of paragraphs according to the first line.
 
 
 
-* Org mode
+* Org mode (inc. task management)
 
 ** General setup
 #+begin_src emacs-lisp
@@ -119,7 +119,11 @@ of paragraphs according to the first line.
   (require 'org-table)
 
   ;; Turn on syntax highlighting in src blocks
-  (setq org-src-fontify-natively t)
+  (setopt org-src-fontify-natively t)
+
+  ;; Defaults for Getting Things Done
+  (setopt org-agenda-files '("~/Documents/GtD/work/" "~/Documents/GtD/inbox.org")) 
+  (setopt org-default-notes-file "~/Documents/GtD/inbox.org")
 
   ;; Make org functions available outside org-mode as recommended by the
   ;; Org manual section 1.3
@@ -127,7 +131,7 @@ of paragraphs according to the first line.
   (global-set-key (kbd "C-c a") #'org-agenda)
   (global-set-key (kbd "C-c c") #'org-capture)
 #+end_src
-
+    
 ** Language support provided by org-babel
 
 See https://orgmode.org/worg/org-contrib/babel/languages/index.html for
@@ -227,8 +231,8 @@ root of repository or =/docs=: choose which in Settings on GitHub.
 
 ** Git
 
-#+begin_src emacs-lisp
-  (use-package magit
+#+begin_src emacs-lisp 
+ (use-package magit
     :init (setq magit-define-global-key-bindings 'recommended))
   (use-package forge)
 #+end_src

@@ -6,7 +6,10 @@
 
 ;;; Code:
 
+(setq debug-on-error t)
+
 (require 'org)
+(require 'ob-tangle)
 
 (let ((custom-file-name (expand-file-name "custom.el" user-emacs-directory)))
   (setq custom-file custom-file-name)
