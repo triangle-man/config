@@ -371,6 +371,13 @@ Utop is an alternative REPL.
 #+end_src
 
 
+* Tools
+
+#+begin_src emacs-lisp
+  (use-package ledger-mode)
+#+end_src
+  
+
 * Text modes
 
 #+begin_src emacs-lisp
