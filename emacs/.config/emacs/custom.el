@@ -10,7 +10,7 @@
  '(elpy-modules
    '(elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-django elpy-module-sane-defaults))
  '(package-selected-packages
-   '(paren-face racket-mode eval-in-repl quarto-mode poly-org poly-markdown polymode elpy company-maxima maxima poly flycheck lua-mode adaptive-wrap visual-fill-column utop merlin nix-mode tuareg haskell-mode hasklig-mode company htmlize forge presentation-mode org-present org paredit ess request magit color-theme-sanityinc-solarized use-package))
+   '(geiser-guile paren-face racket-mode eval-in-repl quarto-mode poly-org poly-markdown polymode elpy company-maxima maxima poly flycheck lua-mode adaptive-wrap visual-fill-column utop merlin nix-mode tuareg haskell-mode hasklig-mode company htmlize forge presentation-mode org-present org paredit ess request magit color-theme-sanityinc-solarized use-package))
  '(python-interpreter "python3")
  '(warning-suppress-types '((comp))))
 
