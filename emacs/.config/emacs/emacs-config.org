@@ -139,7 +139,8 @@ customisation for each supported language.
 #+begin_src emacs-lisp
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((python . t)))
+   '((python . t)
+     (shell . t)))
 
   ;; See code evaluation and security issues in the org manual
   (setq org-confirm-babel-evaluate nil)
@@ -392,4 +393,7 @@ Utop is an alternative REPL.
   (use-package markdown-mode)
 #+end_src
 
+#+begin_src emacs-lisp
+  (use-package csv-mode)
+#+end_src
 
