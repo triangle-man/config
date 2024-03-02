@@ -292,6 +292,10 @@ Paredit provides structured editing support for lisps.
     :hook (racket-mode . racket-xp-mode))
 #+end_src
 
+#+begin_src emacs-lisp
+  (use-package geiser-guile)
+#+end_src
+
 Minor mode to change the face of parentheses.
 #+begin_src emacs-lisp
   (use-package paren-face
