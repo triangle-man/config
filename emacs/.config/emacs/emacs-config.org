@@ -274,6 +274,7 @@ Paredit provides structured editing support for lisps.
   :config
   (dolist (m '(emacs-lisp-mode-hook
 	       racket-mode-hook
+	       geiser-mode-hook
 	       ; racket-repl-mode-hook ; refuses to enter expressions -- JG
 	       ))
     (add-hook m #'paredit-mode))
