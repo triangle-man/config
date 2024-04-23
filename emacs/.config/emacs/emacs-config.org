@@ -105,7 +105,7 @@ of paragraphs according to the first line.
 
 #+begin_src emacs-lisp
   (use-package color-theme-sanityinc-solarized)
-  (load-theme 'sanityinc-solarized-light t)
+  (load-theme 'sanityinc-solarized-dark t)
 #+end_src
 
 
@@ -389,14 +389,26 @@ Utop is an alternative REPL.
   (use-package ess)
 #+end_src
 
+
 * Tools
 
+** Ledger
 #+begin_src emacs-lisp
   (use-package ledger-mode)
 #+end_src
   
 
 * Text modes
+
+#+begin_src emacs-lisp
+  (use-package tex
+    :ensure auctex
+    :hook (TeX-mode . prettify-symbols-mode)
+    :config
+    (setq TeX-parse-self t) ; Enable parse on load.
+    (setq TeX-auto-save t) ; Enable parse on save.
+    )
+    #+end_src
 
 #+begin_src emacs-lisp
   (add-hook 'text-mode-hook 'auto-fill-mode)

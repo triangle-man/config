@@ -13,8 +13,9 @@
  '(hledger-top-income-account "revenue")
  '(ledger-binary-path "ledger")
  '(package-selected-packages
-   '(geiser-guile csv-mode ledger-mode paren-face racket-mode eval-in-repl quarto-mode poly-org poly-markdown polymode elpy company-maxima maxima poly flycheck lua-mode adaptive-wrap visual-fill-column utop merlin nix-mode tuareg haskell-mode hasklig-mode company htmlize forge presentation-mode org-present org paredit ess request magit color-theme-sanityinc-solarized use-package))
+   '(auctex geiser-guile csv-mode ledger-mode paren-face racket-mode eval-in-repl quarto-mode poly-org poly-markdown polymode elpy company-maxima maxima poly flycheck lua-mode adaptive-wrap visual-fill-column utop merlin nix-mode tuareg haskell-mode hasklig-mode company htmlize forge presentation-mode org-present org paredit ess request magit color-theme-sanityinc-solarized use-package))
  '(python-interpreter "python3")
+ '(tool-bar-mode nil)
  '(warning-suppress-types '((comp))))
 
 (custom-set-faces
@@ -22,7 +23,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "Fira Code"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight medium :height 141 :width normal :foundry "nil" :family "Fira Code"))))
  '(font-lock-constant-face ((t (:foreground "medium sea green"))))
  '(fringe ((t (:background unspecified))))
  '(mode-line ((t (:box (:line-width (2 . 2) :style flat-button) :weight normal))))
