@@ -105,7 +105,7 @@ of paragraphs according to the first line.
 
 #+begin_src emacs-lisp
   (use-package color-theme-sanityinc-solarized)
-  (load-theme 'sanityinc-solarized-light t)
+  (load-theme 'sanityinc-solarized-dark t)
 #+end_src
 
 
@@ -139,7 +139,8 @@ customisation for each supported language.
 #+begin_src emacs-lisp
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((python . t)))
+   '((python . t)
+     (shell . t)))
 
   ;; See code evaluation and security issues in the org manual
   (setq org-confirm-babel-evaluate nil)
@@ -214,27 +215,18 @@ root of repository or =/docs=: choose which in Settings on GitHub.
 
 * Programming language support
 
-** Flycheck
+** Asymptote
+
+Asymptote's emacs file is not available from the package archive,
+annoyingly, but has to be found in the local asymptote installation.
 
 #+begin_src emacs-lisp
-  (use-package flycheck
-    :ensure t
-    :init (global-flycheck-mode))
-#+end_src
-
-** Company
-
-#+begin_src emacs-lisp
-  (use-package company
-    :config (global-company-mode))
-#+end_src
-
-** Git
-
-#+begin_src emacs-lisp 
- (use-package magit
-    :init (setq magit-define-global-key-bindings 'recommended))
-  (use-package forge)
+    (add-to-list 'load-path
+		 (substitute-in-file-name "$HOMEBREW_PREFIX/share/asymptote"))
+    (autoload 'asy-mode "asy-mode.el" "Asymptote major mode." t)
+    (autoload 'lasy-mode "asy-mode.el" "hybrid Asymptote/Latex major mode." t)
+    (autoload 'asy-insinuate-latex "asy-mode.el" "Asymptote insinuate LaTeX." t)
+    (add-to-list 'auto-mode-alist '("\\.asy$" . asy-mode))
 #+end_src
 
 ** Assembly
@@ -244,25 +236,27 @@ ARM assembly uses the “@” character as a comment.
   (setq asm-comment-char 64)
 #+end_src
 
-** Polymode
+** Company
 
 #+begin_src emacs-lisp
-  (use-package polymode)
-  (use-package poly-markdown)
-  (use-package poly-org)
+  (use-package company
+    :config (global-company-mode))
 #+end_src
 
-** Quarto
+** Flycheck
 
 #+begin_src emacs-lisp
-  (use-package quarto-mode)
-  (use-package request)
+  (use-package flycheck
+    :ensure t
+    :init (global-flycheck-mode))
 #+end_src
 
-** R
+** Git
 
-#+begin_src emacs-lisp
-  (use-package ess)
+#+begin_src emacs-lisp 
+ (use-package magit
+    :init (setq magit-define-global-key-bindings 'recommended))
+  (use-package forge)
 #+end_src
 
 ** Lisp
@@ -306,13 +300,23 @@ Minor mode to change the face of parentheses.
     (global-paren-face-mode))
 #+end_src
 
-** Python
+** Maxima
 
 #+begin_src emacs-lisp
-  (setq org-babel-python-command "python3")
-  (use-package elpy
-    :ensure t
-    :init (elpy-enable))
+  (use-package maxima
+    :init
+    (add-hook 'maxima-mode-hook #'maxima-hook-function)
+    (add-hook 'maxima-inferior-mode-hook #'maxima-hook-function)
+    (setq
+     org-format-latex-options (plist-put org-format-latex-options :scale 2.0)
+     maxima-display-maxima-buffer nil)
+    :mode ("\\.mac\\'" . maxima-mode)
+    :interpreter ("maxima" . maxima-mode))
+#+end_src
+
+** Nix
+#+begin_src emacs-lisp
+  (use-package nix-mode)
 #+end_src
 
 ** OCaml
@@ -356,27 +360,56 @@ Utop is an alternative REPL.
 	(setq utop-command "opam config exec -- utop -emacs"))
 #+end_src
 
-** Nix
-#+begin_src emacs-lisp
-  (use-package nix-mode)
-#+end_src
-
-** Maxima
+** Polymode
 
 #+begin_src emacs-lisp
-  (use-package maxima
-    :init
-    (add-hook 'maxima-mode-hook #'maxima-hook-function)
-    (add-hook 'maxima-inferior-mode-hook #'maxima-hook-function)
-    (setq
-     org-format-latex-options (plist-put org-format-latex-options :scale 2.0)
-     maxima-display-maxima-buffer nil)
-    :mode ("\\.mac\\'" . maxima-mode)
-    :interpreter ("maxima" . maxima-mode))
+  (use-package polymode)
+  (use-package poly-markdown)
+  (use-package poly-org)
 #+end_src
 
+** Python
+
+#+begin_src emacs-lisp
+  (setq org-babel-python-command "python3")
+  (use-package elpy
+    :ensure t
+    :init (elpy-enable))
+#+end_src
+
+** Quarto
+
+#+begin_src emacs-lisp
+  (use-package quarto-mode)
+  (use-package request)
+#+end_src
+
+** R
+
+#+begin_src emacs-lisp
+  (use-package ess)
+#+end_src
+
+
+* Tools
+
+** Ledger
+#+begin_src emacs-lisp
+  (use-package ledger-mode)
+#+end_src
+  
 
 * Text modes
+
+#+begin_src emacs-lisp
+  (use-package tex
+    :ensure auctex
+    :hook (TeX-mode . prettify-symbols-mode)
+    :config
+    (setq TeX-parse-self t) ; Enable parse on load.
+    (setq TeX-auto-save t) ; Enable parse on save.
+    )
+    #+end_src
 
 #+begin_src emacs-lisp
   (add-hook 'text-mode-hook 'auto-fill-mode)
@@ -390,4 +423,7 @@ Utop is an alternative REPL.
   (use-package markdown-mode)
 #+end_src
 
+#+begin_src emacs-lisp
+  (use-package csv-mode)
+#+end_src
 
