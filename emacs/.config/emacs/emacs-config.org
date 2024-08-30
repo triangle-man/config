@@ -131,7 +131,7 @@ of paragraphs according to the first line.
   (global-set-key (kbd "C-c a") #'org-agenda)
   (global-set-key (kbd "C-c c") #'org-capture)
 #+end_src
-    
+
 ** Language support provided by org-babel
 
 See https://orgmode.org/worg/org-contrib/babel/languages/index.html for
@@ -151,14 +151,10 @@ very well.
 
 ** LaTeX export configuration
 
-Use the =minted= package for syntax highlighting in LaTeX. There seem to
-be some indication that =engraved= will eventually supercede this.
+Use =engraved= mode for syntax highlighting in LaTeX. 
 #+begin_src emacs-lisp
-  (require 'ox-latex)
-  (setq org-latex-listings 'minted)
-  (add-to-list 'org-latex-packages-alist '("newfloat" "minted"))
-  (setq org-latex-pdf-process
-	'("latexmk -f -shell-escape -pdf -%latex -interaction=nonstopmode -output-directory=%o %f"))
+  (use-package engrave-faces)
+  (setq org-latex-src-block-backend 'engraved)
 #+end_src
 
 ** Publishing my blog
