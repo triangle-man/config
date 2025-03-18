@@ -394,6 +394,11 @@ Utop is an alternative REPL.
   (use-package ledger-mode)
 #+end_src
   
+** Gnuplot
+#+begin_src emacs-lisp
+  (use-package gnuplot)
+#+end_src
+
 
 * Text modes
 
