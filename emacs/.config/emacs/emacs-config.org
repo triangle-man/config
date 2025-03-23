@@ -355,6 +355,13 @@ Utop is an alternative REPL.
 	(setq utop-command "opam config exec -- utop -emacs"))
 #+end_src
 
+** OpenCL
+
+#+begin_src emacs-lisp
+(use-package opencl-c-mode
+    :ensure t)
+#+end_src
+
 ** Polymode
 
 #+begin_src emacs-lisp
