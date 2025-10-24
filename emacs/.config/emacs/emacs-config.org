@@ -209,6 +209,24 @@ root of repository or =/docs=: choose which in Settings on GitHub.
 
 
 
+* Global minor modes
+
+** Company
+
+#+begin_src emacs-lisp
+  (use-package company
+    :config (global-company-mode))
+#+end_src
+
+** Flycheck
+
+#+begin_src emacs-lisp
+  (use-package flycheck
+    :ensure t
+    :init (global-flycheck-mode))
+#+end_src
+
+
 * Programming language support
 
 ** Asymptote
@@ -230,21 +248,6 @@ annoyingly, but has to be found in the local asymptote installation.
 ARM assembly uses the “@” character as a comment.
 #+begin_src emacs-lisp
   (setq asm-comment-char 64)
-#+end_src
-
-** Company
-
-#+begin_src emacs-lisp
-  (use-package company
-    :config (global-company-mode))
-#+end_src
-
-** Flycheck
-
-#+begin_src emacs-lisp
-  (use-package flycheck
-    :ensure t
-    :init (global-flycheck-mode))
 #+end_src
 
 ** Git
