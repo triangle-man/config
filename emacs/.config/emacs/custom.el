@@ -21,6 +21,7 @@
  '(package-selected-packages
    '(adaptive-wrap auctex color-theme-sanityinc-solarized company
 		   company-maxima csv-mode elpy engrave-faces ess
+<<<<<<< HEAD
 		   eval-in-repl flycheck flycheck-ocaml forge
 		   geiser-guile gnuplot haskell-mode hasklig-mode
 		   htmlize ledger-mode lua-mode magit maxima merlin
@@ -29,6 +30,15 @@
 		   poly-org polymode presentation-mode quarto-mode
 		   racket-mode request tuareg use-package utop
 		   visual-fill-column))
+=======
+		   eval-in-repl flycheck forge geiser-guile gnuplot
+		   haskell-mode hasklig-mode htmlize ledger-mode
+		   lua-mode magit maxima merlin nix-mode opencl-c-mode
+		   org org-present paredit paren-face poly poly-R
+		   poly-markdown poly-org polymode presentation-mode
+		   quarto-mode racket-mode request tuareg use-package
+		   utop visual-fill-column))
+>>>>>>> d2c63fe52d376424f37bfdd94bb8b0f87dbcb40f
  '(python-interpreter "python3")
  '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape")))
  '(tool-bar-mode nil)
