@@ -6,13 +6,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(sanityinc-solarized-dark))
  '(custom-safe-themes
-   '("6819104c5f7d70485b32c10323aa396806d282fcee5b707e462bf3d156f44c39"
-     "48d34b6afe72407ca494387c8bea495bb2deee96bd88516f302db1f11e1810a1"
-     "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328"
-     "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4"
-     default))
- '(ede-project-directories
-   '("/Users/james/Projects/hut23-linear-algebra/implementation/matmul-c"))
+   '("48d34b6afe72407ca494387c8bea495bb2deee96bd88516f302db1f11e1810a1" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default))
  '(elpy-modules
    '(elpy-module-company elpy-module-eldoc elpy-module-pyvenv
 			 elpy-module-highlight-indentation
