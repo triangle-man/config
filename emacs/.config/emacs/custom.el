@@ -18,13 +18,7 @@
  '(hledger-currency-string "£")
  '(hledger-top-income-account "revenue")
  '(ledger-binary-path "ledger")
- '(package-selected-packages
-   '(adaptive-wrap auctex color-theme-sanityinc-solarized corfu csv-mode
-		   elpy engrave-faces flycheck forge geiser-guile
-		   gnuplot htmlize ledger-mode lsp-mode maxima merlin
-		   nix-mode opam-switch-mode opencl-c-mode paredit
-		   paren-face poly-R poly-org quarto-mode racket-mode
-		   utop visual-fill-column))
+ '(package-selected-packages nil)
  '(python-interpreter "python3")
  '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape")))
  '(tool-bar-mode nil)

@@ -140,7 +140,8 @@ customisation for each supported language.
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((python . t)
-     (shell . t)))
+     (shell . t)
+     (ocaml . t)))
 
   ;; See code evaluation and security issues in the org manual
   (setq org-confirm-babel-evaluate nil)
@@ -319,6 +320,9 @@ Minor mode to change the face of parentheses.
 #+end_src
 
 ** OCaml
+
+Tuareg is the major mode for editing OCaml.
+
 #+begin_src emacs-lisp
   (use-package tuareg
     :ensure t)
@@ -329,24 +333,33 @@ Minor mode to change the face of parentheses.
       (load local-tuareg-site-file)))
 #+end_src
 
+Merlin is for syntax and type-checking.
+
 #+begin_src emacs-lisp
   (use-package merlin
     :ensure t
     :config
      (add-hook 'tuareg-mode-hook 'merlin-mode t)
      (add-hook 'merlin-mode-hook #'company-mode t))
+#+end_src
   
-  ;; Instructed to add this by `opam install merlin`:
-(let ((opam-share (ignore-errors (car (process-lines "opam" "var" "share")))))
-  (when (and opam-share (file-directory-p opam-share))
-    ;; Register Merlin
-    (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
-    (autoload 'merlin-mode "merlin" nil t nil)
-    ;; Automatically start it in OCaml buffers
-    ;; (add-hook 'tuareg-mode-hook 'merlin-mode t)
-    (add-hook 'caml-mode-hook 'merlin-mode t)
-    ;; Use opam switch to lookup ocamlmerlin binary
-    (setq merlin-command 'opam)))
+Instructed to add this by `opam install merlin`:
+#+begin_src emacs-lisp
+  (let ((opam-share (ignore-errors (car (process-lines "opam" "var" "share")))))
+    (when (and opam-share (file-directory-p opam-share))
+      ;; Register Merlin
+      (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+      (autoload 'merlin-mode "merlin" nil t nil)
+      ;; Automatically start it in OCaml buffers
+;      (add-hook 'tuareg-mode-hook 'merlin-mode t)
+;      (add-hook 'caml-mode-hook 'merlin-mode t)
+      ;; Use opam switch to lookup ocamlmerlin binary
+      (setq merlin-command 'opam)
+      ;; To easily change opam switches within a given Emacs session, you can
+      ;; install the minor mode
+      ;; https://github.com/ProofGeneral/opam-switch-mode
+      ;; and use one of its "OPSW" menus.
+      ))
 #+end_src
 
 Utop is an alternative REPL.
@@ -359,10 +372,17 @@ Utop is an alternative REPL.
 	(setq utop-command "opam config exec -- utop -emacs"))
 #+end_src
 
+If a switch isn't chosen, Emacs can't find the merlin binary.
+#+begin_src emacs-lisp
+  (use-package opam-switch-mode
+    :ensure t
+    :hook ((coq-mode tuareg-mode) . opam-switch-mode))
+#+end_src
+
 ** OpenCL
 
 #+begin_src emacs-lisp
-  (use-package opencl-c-mode
+(use-package opencl-c-mode
     :ensure t)
 #+end_src
 
